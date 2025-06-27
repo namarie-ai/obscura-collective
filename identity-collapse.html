@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Identity Collapse | Obscura Collective</title>
+  <!--<link rel="stylesheet" href="style.css">-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    body.identity-page {
+      --accent-color: #00ffff;
+      background: #000;
+      color: #ddd;
+    }
+
+    .hero-section {
+      background: linear-gradient(to bottom, #000000 0%, #002626 100%);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    .mini-callout {
+      background: #111;
+      border-left: 4px solid var(--accent-color);
+      padding: 1rem;
+      margin: 2rem 0;
+      max-width: 600px;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin: 3rem auto 2rem;
+      padding: 0.8rem 1.5rem;
+      background: var(--accent-color);
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .pillar-flex {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body class="identity-page">
+  <nav style="position: absolute; top: 1rem; left: 1rem; right: 1rem; z-index: 1000; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem;">
+    <div><a href="index.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">[home_]</a></div>
+    <div style="display: flex; gap: 1.5rem;">
+      <a href="education.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">[education_]</a>
+      <a href="community.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">[community_]</a>
+    </div>
+  </nav>
+
+  <header class="hero-section">
+    <h1>[IDENTITY COLLAPSE_]</h1>
+    <p class="hero-sub">"You were marketed a self before you even met it."</p>
+  </header>
+
+  <main style="max-width: 1000px; margin: 2rem auto; padding: 1rem;">
+    <div class="pillar-flex" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+      
+      <!-- Left: Image -->
+      <div style="flex: 1 1 300px; max-width: 350px;">
+        <img src="images/identity-collapse.jpg" alt="Cinematic visual for Identity Collapse" style="width: 100%; height: auto; border: 2px solid var(--accent-color); box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);" />
+      </div>
+
+      <!-- Right: Text -->
+      <div style="flex: 2 1 400px;">
+        <p><strong>Who are you?</strong> It’s a harder question than it should be. Your feed gave you a template. Your likes told you what to perform. Your brand replaced your soul.</p>
+
+        <p><strong>You never had a chance to discover your identity.</strong> Not with algorithms whispering who to be. Not with platforms rewarding aesthetics over truth. Not with perfection as the price of belonging.</p>
+
+        <p><strong>This isn’t identity exploration.</strong> It’s identity collapse. And it was by design. When everyone’s trying to stand out the same way, no one can afford to be real.</p>
+
+        <div class="mini-callout">
+          <p><strong>System At A Glance:</strong><br />
+          Exploit: Identity Performance<br />
+          Weaponised: Filters, Follower Counts, Hyper-curation<br />
+          Cost: Self-awareness, Belonging, Authenticity</p>
+        </div>
+
+        <a href="download.html" class="cta-button">[GET THE RESISTANCE KIT]</a>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the Community Waiting List | Obscura</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+  <nav style="position: absolute; top: 1rem; left: 1rem; right: 1rem; z-index: 1000; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem;">
+    <a href="index.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">[home_]</a>
+    <div style="display: flex; gap: 1.5rem;">
+      <a href="education.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">[education_]</a>
+      <a href="community.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">[community_]</a>
+    </div>
+  </nav>
+
+  <div class="crt-overlay"></div>
+
+  <header class="hero-section">
+    <div class="hero-content">
+      <img src="images/obscura-logo.png" alt="Obscura Collective Logo" class="hero-logo">
+      <h1 data-original-text="WAITING LIST">WAITING LIST</h1>
+      <h3 class="sub-headline-hero">[The Community Uprising is for the ones ready to break free together. Join the waitlist to connect with fellow system-breakers, share real stories, and build the support network that actually gets it—because revolution happens in groups, not isolation.]</h3>
+     
+<form id="resistanceForm">
+  <input type="text" name="name" id="nameInput" placeholder="Your Name" required />
+  <input type="email" name="email" id="emailInput" placeholder="Your Email" required />
+  <button type="submit">[ADD ME TO THE WAITING LIST_]</button>
+</form>
+
+<script>
+  document.getElementById('resistanceForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // stop default submit
+
+    const fullName = document.getElementById('nameInput').value;
+    const email = document.getElementById('emailInput').value;
+    const firstName = fullName.split(" ")[0];
+    localStorage.setItem("firstName", firstName); // store name for thank you page
+
+    // Send data to Make webhook
+    fetch("https://hook.eu2.make.com/c9tpms75w5aq7nsx8ddnl1x9uiu3b8tu", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name: fullName, email: email })
+    })
+    .then(() => {
+      window.location.href = "thankyou-waiting-list.html"; // redirect after successful post
+    })
+    .catch((err) => {
+      console.error("Webhook error:", err);
+      alert("There was a problem. Please try again.");
+    });
+  });
+</script>
+    </div>
+    <div class="scroll-down-indicator">[SCROLL_//_DISCOVER]</div>
+  </header>
+
+  <section class="watch-section">
+  <div class="container">
+    <h2 class="watch-title">[WATCH THE SYSTEM GLITCH_]</h2>
+    <p class="watch-sub">Follow Obscura for daily drops. 60-second revolts. Visual resistance you can feel.</p>
+    <div class="social-icons-large">
+    <a href="https://tiktok.com/@obscura_collective" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://youtube.com/@Obscura_Collective" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://instagram.com/the_obscura_collective" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/Obscura_Collect" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    </div>
+  </div>
+</section>
+
+
+  <footer class="footer-section">
+    <div class="container">
+      <p class="footer-text">[OBSCURA_FEED: ACTIVE_//_NEW_SIGNALS_DETECTED_]</p>
+      <p class="copyright-text">© <span id="current-year"></span> // OBSCURA COLLECTIVE // ALL VISIONS AMPLIFIED.</p>
+  </div>
+</footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

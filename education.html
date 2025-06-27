@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Education | Obscura Collective</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: 'Courier New', Courier, monospace;
+      background: #000;
+      color: #ddd;
+    }
+
+    body.education-page {
+      --accent-color: #3399ff;
+    }
+
+    .hero-section {
+      background: linear-gradient(to bottom, #000000 0%, #001f33 100%);
+      padding: 2.5rem 1rem 2rem;
+      text-align: center;
+    }
+
+    .hero-section h1 {
+      font-size: 2.8rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .hero-section p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      right: 1rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav div:last-child {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .section-wrapper {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .course-block {
+      display: flex;
+      flex-wrap: wrap;
+      background: #111;
+      border-right: 4px solid var(--accent-color);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px rgba(51, 153, 255, 0.2);
+    }
+
+    .course-text {
+      flex: 1 1 60%;
+      padding-right: 1.5rem;
+    }
+
+    .course-block h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: var(--accent-color);
+    }
+
+    .course-block p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .course-image {
+      flex: 1 1 35%;
+      height: 200px;
+      background: #222;
+      border: 1px dashed #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-style: italic;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 3rem;
+      padding: 0.9rem 1.8rem;
+      background: var(--accent-color);
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .bottom-cta {
+      text-align: center;
+      margin: 3rem 0 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2.2rem;
+      }
+      .course-block {
+        flex-direction: column;
+      }
+      .course-text {
+        padding-right: 0;
+      }
+      .course-image {
+        margin-top: 1rem;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body class="education-page">
+
+  <nav>
+    <div><a href="index.html">[home_]</a></div>
+    <div>
+      <a href="education.html">[education_]</a>
+      <a href="community.html">[community_]</a>
+    </div>
+  </nav>
+
+  <header class="hero-section">
+    <h1>[OBSCURA // EDUCATION_]</h1>
+    <p>"This isn’t school. This is self-defence."</p>
+  </header>
+
+  <div class="section-wrapper">
+
+   <div class="course-block">
+      <div class="course-text">
+        <h2>All Courses Coming Soon</h2>
+        <p>Tired of feeling like the world doesn't make sense? That's because it wasn't designed to. We're dropping six revolutionary courses that decode the invisible systems keeping you stuck—from rigged money games to hijacked attention, toxic work culture to broken education. Learn to see clearly, think independently, and build a life that actually works for you. Coming soon - Join the waiting list below and break free.</p>
+ 
+      </div>
+      <img src="images/coming-soon2.jpg" alt="A person types on a glowing laptop while floating in a dark, geometric space. A golden stream of code flows from the screen, piercing through a crystalline wall into a bright natural landscape with mountains and trees — symbolising technology as a portal to freedom." class="course-image" />
+    </div>
+
+ <div class="course-block">
+      <div class="course-text">
+        <h2>Broke Code</h2>
+        <p>Money feels impossible because the game changed, but nobody updated the rulebook. This isn't your typical budgeting course with spreadsheets and shame — we decode how money actually moves in your life right now. You'll track spending without judgment, calculate what your dream lifestyle costs, spot psychological tricks keeping you broke, and get real talk about side hustles and building wealth when traditional paths are broken.</p>
+      </div>
+       <img src="images/broke-code.jpg" alt="Digital banking app on a smartphone displays a balance of $0.02 with a message saying “You’re doing great!”" class="course-image" />
+
+    </div>
+
+    <div class="course-block">
+      <div class="course-text">
+        <h2>Dopamine Detox</h2>
+        <p>You weren't born with a short attention span—your focus was systematically hijacked by a trillion-dollar industry that profits from your distraction. This course reveals how social media, streaming services, and apps turned your brain into a slot machine. Learn how dopamine actually works, recognise manipulation tactics, and rebuild focus through practical attention training techniques and intentional technology use that serves your goals, not Silicon Valley's.</p>
+      </div>
+       <img src="images/dopamine-detox.jpg" alt="Split-screen image showing two phones: one cracked and overwhelmed by red social media icons, the other calm and turned off, sitting beside a plant and a book — symbolising the contrast between digital chaos and intentional stillness." class="course-image" />
+
+    </div>
+
+    <div class="course-block">
+      <div class="course-text">
+        <h2>Grind Shift</h2>
+     <p>"Just work harder" is the biggest lie of our generation—you're not lazy, you're experiencing the natural human response to unsustainable systems. This course dismantles toxic productivity culture by exploring how grind culture became default, why burnout is trauma, and distinguishing genuine ambition from performative busyness. You'll develop personalised work rhythms, set guilt-free boundaries, and create meaningful success metrics—working smarter by working more humanely.</p>
+      </div>
+       <img src="images/grind-shift.jpg" alt="A man works on a laptop in a hammock suspended between two trees with filing cabinets instead of branches. Scattered around are “WORK HARDER” posters and a mug that reads “HUSTLE 24/7” — all set against a glowing sunset sky, symbolising the collision of burnout culture and forced calm." class="course-image" />
+
+    </div>
+
+<div class="course-block">
+      <div class="course-text">
+        <h2>School's Out Forever</h2>
+     <p>The education system was designed to create compliant workers for an industrial economy that doesn't exist anymore. This course helps you unlearn passive learning and rediscover curiosity by examining how traditional education suppresses critical thinking, creativity, and self-direction. You'll design your own "Real World Learning Path," think critically about information sources, and develop confidence to question everything—becoming an active learner who can navigate uncertainty.</p>
+      </div>
+     <img src="images/schools-out.jpg" alt="A student sits in a glowing, dreamlike classroom with neon icons floating around — coding, music, art, career. On the blackboard, the words “2+2=?” and “What QUESTIONS matter to you?” are written. Books and butterflies fly through the air, suggesting a rewilded approach to education." class="course-image" />
+
+    </div>
+
+
+    <div class="course-block">
+      <div class="course-text">
+        <h2>Permission to Chill</h2>
+        <p>Rest isn't something you earn after being productive enough — it's a human right that capitalism convinced you to abandon. This module helps you reclaim your nervous system from a culture that profits from your stress. You'll learn why your body feels unsafe during stillness, master nervous system regulation techniques, establish availability boundaries, and practice micro-acts of rebellion against hustle culture — it's cultural resistance, not just self-care.</p>
+      </div>
+       <img src="images/permission-chill.jpg" alt="A woman relaxes in bed under warm fairy lights, reading a book as glowing butterflies rise from its pages. Around her are scattered to-do lists, a weekly planner, a phone, and a curled-up cat — a soft visual of choosing rest in a productivity-obsessed world." class="course-image" />
+
+    </div>
+
+ <div class="course-block">
+      <div class="course-text">
+        <h2>Main Character Energy</h2>
+        <p>You are not your productivity, your achievements, or your social media metrics — this course guides you through a gentle but radical reconstruction of self-worth based on your inherent value, not your output. We examine how comparison culture and achievement obsession distorted your self-perception, then help you build an unshakeable internal compass. You'll distinguish healthy ambition from self-worth addiction, develop resilience against comparison triggers, and cultivate stable self-identity.</p>
+      </div>
+     <img src="images/main-character.jpg" alt="A person stands at a window holding a paint palette, gazing at a sunlit path beyond. Behind them are shadowy figures symbolising societal roles — follower counts, family expectations, career archetypes — as a guitar and camera rest beside them, evoking the choice to pursue a more authentic path." class="course-image" />
+ </div>
+
+
+
+    <div class="bottom-cta">
+      <a href="education-waiting-list.html" class="cta-button">[JOIN THE WAITING LIST_]</a>
+      <p style="font-size: 0.9rem; color: #888; margin-top: 0.5rem;">Get notified when the first course drops.</p>
+    </div>
+
+  </div>
+</body>
+</html>

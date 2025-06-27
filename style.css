@@ -1,0 +1,760 @@
+/* --- FONT IMPORTS (Self-host or Google Fonts) --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=VT323&display=swap');
+
+/* --- GLOBAL STYLES & RESETS --- */
+:root {
+    --color-neon-blue: #00FFFF;
+    --color-hot-pink: #FF00FF;
+    --color-acid-green: #39FF14;
+    --color-glitch-yellow: #FFFF00;
+    /* --color-dark-bg: #0d0d0d; -- No longer primary, body is black */
+    --color-medium-gray: #1a1a1a; /* For subtle card backgrounds or borders */
+    --color-text-light: #f0f0f0;
+    --font-headline: 'Impact', 'Arial Black', sans-serif;
+    --font-body: 'Roboto Mono', monospace;
+    --font-pixel: 'VT323', monospace;
+}
+
+body {
+    background-color: #000000; /* ALL BLACK BACKGROUND */
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+    margin: 0;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+html, body {
+    height: auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* --- CRT / VHS OVERLAY --- */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background:
+        repeating-linear-gradient(
+            transparent,
+            transparent 2px,
+            rgba(25,25,25,0.05) 2px, /* Slightly lighter scanlines for pure black */
+            rgba(25,25,25,0.05) 3px
+        );
+    opacity: 0.6;
+    animation: vhs-flicker 0.15s infinite alternate;
+}
+
+@keyframes vhs-flicker {
+    0% { opacity: 0.55; }
+    100% { opacity: 0.65; }
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    min-height: 80vh; /* Use min-height to accommodate logo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 20px; /* Added more padding for logo */
+    border-bottom: 3px solid var(--color-neon-blue);
+    background-color: #000000; /* Ensure black */
+}
+
+.hero-logo {
+    max-width: 150px; /* Adjust size as needed */
+    margin-bottom: 30px; /* Space between logo and text */
+    filter: brightness(0.9) contrast(1.1); /* Subtle enhancement for white logo on black */
+}
+
+.hero-background-video { /* If you re-enable it */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -10; /* Ensure it's behind content and logo */
+    transform: translateX(-50%) translateY(-50%);
+    filter: grayscale(80%) brightness(0.4) blur(3px);
+    opacity: 0.3;
+}
+
+.hero-content h1 {
+    font-family: var(--font-headline);
+    font-size: clamp(3rem, 10vw, 7rem); /* Slightly smaller to accommodate logo */
+    color: var(--color-text-light);
+    margin: 0;
+    text-shadow: 0 0 10px var(--color-neon-blue), 0 0 20px var(--color-neon-blue);
+    letter-spacing: -2px;
+}
+.hero-content h2 {
+    font-family: var(--font-headline);
+    font-size: clamp(2.5rem, 8vw, 5.5rem); /* Slightly smaller */
+    color: var(--color-hot-pink);
+    margin: -10px 0 20px 0;
+    text-shadow: 0 0 10px var(--color-hot-pink);
+    letter-spacing: -1px;
+}
+
+.sub-headline-hero {
+    font-family: var(--font-pixel);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--color-acid-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    animation: text-flicker-fast 2s infinite alternate;
+}
+
+/* --- CSS GLITCH TEXT EFFECT --- */
+.glitch-text-permanent, .glitch-text-subtle {
+    position: relative;
+}
+.glitch-text-permanent::before, .glitch-text-permanent::after,
+.glitch-text-subtle::before, .glitch-text-subtle::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+.glitch-text-permanent::before {
+    left: 2px;
+    text-shadow: -1px 0 var(--color-hot-pink);
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    animation: glitch-anim-1 3s infinite linear alternate-reverse .2s;
+}
+.glitch-text-permanent::after {
+    left: -2px;
+    text-shadow: -1px 0 var(--color-acid-green), 1px 1px var(--color-neon-blue);
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    animation: glitch-anim-2 3.5s infinite linear alternate-reverse .5s;
+}
+.glitch-text-subtle::before {
+    left: 1px; text-shadow: -0.5px 0 var(--color-neon-blue);
+    clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%);
+    animation: glitch-anim-subtle 5s infinite linear alternate .3s;
+}
+.glitch-text-subtle::after { display: none; }
+
+@keyframes glitch-anim-1 {
+    0% { clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%); transform: translate(-0.05em, -0.0125em); }
+    5% { clip-path: polygon(0 15%, 100% 15%, 100% 19%, 0 19%); transform: translate(0.025em, -0.025em); }
+    10% { clip-path: polygon(0 8%, 100% 8%, 100% 12%, 0 12%); transform: translate(-0.025em, 0.0125em); }
+    100% { clip-path: polygon(0 63%, 100% 63%, 100% 66%, 0 66%); transform: translate(0.025em, 0.01em); }
+}
+@keyframes glitch-anim-2 {
+    0% { clip-path: polygon(0 78%, 100% 78%, 100% 81%, 0 81%); transform: translate(0.05em, 0.0125em); }
+    5% { clip-path: polygon(0 50%, 100% 50%, 100% 54%, 0 54%); transform: translate(-0.0125em, 0.025em); }
+    10% { clip-path: polygon(0 90%, 100% 90%, 100% 93%, 0 93%); transform: translate(0.025em, -0.0125em); }
+    100% { clip-path: polygon(0 33%, 100% 33%, 100% 36%, 0 36%); transform: translate(-0.025em, -0.01em); }
+}
+@keyframes glitch-anim-subtle {
+    0% { clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%); transform: translate(0, 0); }
+    50% { clip-path: polygon(0 48%, 100% 48%, 100% 52%, 0 52%); transform: translate(0.01em, -0.01em); }
+    100% { clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%); transform: translate(0, 0); }
+}
+
+/* --- CTA BUTTONS --- */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-family: var(--font-headline);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 2px solid;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+.primary-cta {
+    background-color: var(--color-acid-green);
+    color: #000; /* Black text on green button */
+    border-color: var(--color-acid-green);
+    box-shadow: 0 0 15px var(--color-acid-green);
+}
+.primary-cta:hover {
+    background-color: #000;
+    color: var(--color-acid-green);
+    box-shadow: 0 0 25px var(--color-acid-green), inset 0 0 10px var(--color-acid-green);
+}
+.secondary-cta {
+    background-color: transparent;
+    color: var(--color-neon-blue);
+    border-color: var(--color-neon-blue);
+}
+.secondary-cta:hover {
+    background-color: var(--color-neon-blue);
+    color: #000; /* Black text on blue button */
+    box-shadow: 0 0 15px var(--color-neon-blue);
+}
+
+/* --- GENERAL CONTENT SECTIONS --- */
+.content-section, .manifesto-section, .join-vision-section {
+    padding: 60px 0;
+    background-color: #000000; /* Ensure all sections are black */
+}
+
+/* Manifesto specific styling on black background */
+.manifesto-section {
+    text-align: center;
+}
+.manifesto-section .manifesto-title {
+    font-family: var(--font-headline);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--color-glitch-yellow); /* Yellow title on black background */
+    text-shadow: 1px 1px 0 var(--color-hot-pink);
+    margin-bottom: 20px;
+}
+.manifesto-section .manifesto-text {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: var(--color-text-light); /* Light text on black background */
+}
+
+.section-title {
+    font-family: var(--font-headline);
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--color-hot-pink);
+    text-shadow: 0 0 8px var(--color-hot-pink);
+}
+.section-title-small {
+    font-family: var(--font-headline);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--color-acid-green);
+}
+.section-intro {
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    color: #ccc;
+}
+
+/* --- FOCUS GRID (Formerly Truth Grid) --- */
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+.focus-card {
+    background-color: var(--color-medium-gray); /* Dark gray card on black BG */
+    padding: 25px;
+    border: 1px solid var(--color-neon-blue);
+    border-left-width: 5px;
+    text-align: center;
+}
+.focus-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,255,255,0.2);
+}
+/* Styles for icon, title, text within focus-card, now part of card-icon, card-title, card-text */
+.focus-card .card-icon i {
+    font-size: 3em;
+    color: var(--color-acid-green);
+    text-shadow: 0 0 5px var(--color-acid-green), 0 0 10px rgba(57, 255, 20, 0.7);
+    margin-bottom: 15px;
+}
+.focus-card .card-title {
+    font-family: var(--font-pixel);
+    font-size: 1.3rem;
+    color: var(--color-text-light);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.focus-card .card-text {
+    font-size: 0.9rem;
+    color: #bbb;
+    margin-bottom: 15px;
+}
+.focus-card .cta-link { /* This is for links within the cards */
+    font-family: var(--font-pixel);
+    color: var(--color-hot-pink);
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+.focus-card .cta-link:hover { text-decoration: underline; }
+
+/* --- PILLARS ACCORDION (Formerly Solutions Accordion) --- */
+.pillars-accordion .pillar-item {
+    background-color: rgba(255,255,255,0.03); /* Very subtle lighter shade for accordion item */
+    margin-bottom: 10px;
+    border: 1px solid var(--color-hot-pink);
+}
+.pillar-title {
+    font-family: var(--font-pixel);
+    font-size: 1.4rem;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-acid-green);
+    text-transform: uppercase;
+}
+.pillar-title .expand-icon {
+    color: var(--color-hot-pink);
+    transition: transform 0.3s ease-out;
+}
+.pillar-item.active .pillar-title .expand-icon {
+    transform: rotate(45deg);
+}
+.pillar-content {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.645, 0.045, 0.355, 1),
+                padding-top 0.5s cubic-bezier(0.645, 0.045, 0.355, 1),
+                padding-bottom 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    color: #ddd;
+}
+
+.pillar-content strong {
+  color: var(--accent-color) !important;
+}
+
+.cta-link-subtle { /* For links inside accordion */
+    font-family: var(--font-pixel);
+    color: var(--color-neon-blue); /* Neon blue for subtle links */
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 0;
+}
+.cta-link-subtle:hover { text-decoration: underline; }
+
+
+/* --- JOIN THE VISION SECTION --- */
+.join-vision-section { text-align: center; }
+.social-proof-placeholder p {
+    font-family: var(--font-pixel);
+    font-size: 1.5rem;
+    color: var(--color-glitch-yellow);
+    margin: 30px 0;
+}
+
+
+/* --- FOOTER --- */
+.footer-section {
+    background-color: #000; /* Ensure footer is black */
+    padding: 30px 0;
+    text-align: center;
+    border-top: 3px solid var(--color-hot-pink);
+    font-family: var(--font-pixel);
+}
+.footer-text {
+    color: var(--color-acid-green);
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+.copyright-text {
+    color: #777;
+    font-size: 0.8rem;
+}
+
+/* --- UTILITY ANIMATIONS --- */
+@keyframes text-flicker-fast {
+    0% { opacity: 1; } 2% { opacity: 0.6; } 4% { opacity: 1; }
+    60% { opacity: 1; } 62% { opacity: 0.7; } 64% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+/* --- SCROLL INDICATOR --- */
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-pixel);
+    color: var(--color-neon-blue);
+    animation: bounce 2s infinite;
+    font-size: 0.9rem;
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* --- SCROLL-IN ANIMATION STYLES --- */
+.focus-card,
+.pillar-item,
+.section-title, /* Applies to section titles on main and sub-pages */
+.manifesto-title,
+.manifesto-text,
+.join-vision-section > .container > *,
+.detail-content-wrapper > *, /* Animate elements within detail pages */
+.downloads-form-container,
+.download-item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(0.645, 0.045, 0.355, 1),
+                transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
+    will-change: opacity, transform;
+}
+
+.focus-card.animate-in,
+.pillar-item.animate-in,
+.section-title.animate-in,
+.manifesto-title.animate-in,
+.manifesto-text.animate-in,
+.join-vision-section > .container > *.animate-in,
+.detail-content-wrapper > *.animate-in,
+.downloads-form-container.animate-in,
+.download-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- SUB-PAGE HEADER STYLES --- */
+.page-header {
+    padding: 20px 0;
+    border-bottom: 2px solid var(--color-medium-gray);
+    background-color: #000; /* Ensure black background */
+}
+
+.header-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.subpage-logo {
+    max-width: 50px; /* Smaller logo for sub-pages */
+    margin-right: 15px;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.header-title-link {
+    font-family: var(--font-headline);
+    font-size: 1.5rem;
+    color: var(--color-text-light);
+    text-decoration: none;
+}
+.header-title-link:hover {
+    color: var(--color-neon-blue);
+}
+
+
+/* --- DETAIL PAGE SPECIFIC STYLES --- */
+.detail-page-content .section-title { /* Already covered by general .section-title scroll animation */
+    margin-top: 20px;
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Slightly smaller title for detail pages */
+}
+.detail-content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left; /* Or 'justify' if preferred */
+}
+.detail-content-wrapper p, .detail-content-wrapper ul {
+    margin-bottom: 20px;
+    color: #ddd;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+.detail-content-wrapper ul {
+    list-style: none;
+    padding-left: 0;
+}
+.detail-content-wrapper ul li {
+    padding-left: 1.5em;
+    position: relative;
+    margin-bottom: 10px;
+}
+.detail-content-wrapper ul li::before {
+    content: '[//]'; /* Glitchy bullet */
+    position: absolute;
+    left: 0;
+    color: var(--color-acid-green);
+    font-family: var(--font-pixel);
+}
+
+.detail-image-placeholder {
+    width: 100%;
+    min-height: 200px;
+    background-color: var(--color-medium-gray);
+    border: 1px dashed var(--color-neon-blue);
+    display: flex;
+    flex-direction: column; /* Allow icon and text to stack */
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    padding: 20px;
+    font-family: var(--font-pixel);
+    color: var(--color-neon-blue);
+    font-size: 1.2rem;
+    text-align: center;
+}
+.cta-section-detail {
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+
+/* --- DOWNLOADS PAGE & FORM STYLES --- */
+.downloads-page-content .section-title { /* Already covered by general .section-title scroll animation */
+    margin-top: 20px;
+}
+.downloads-form-container {
+    max-width: 600px;
+    margin: 30px auto 50px auto;
+    background-color: rgba(26, 26, 26, 0.7); /* Slightly transparent dark grey */
+    padding: 30px;
+    border: 1px solid var(--color-hot-pink);
+    box-shadow: 0 0 15px rgba(255,0,255,0.3);
+}
+.form-group {
+    margin-bottom: 25px;
+}
+.form-group label {
+    display: block;
+    font-family: var(--font-pixel);
+    color: var(--color-acid-green);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+.form-group input[type="text"],
+.form-group input[type="email"] {
+    width: calc(100% - 24px); /* Account for padding */
+    padding: 12px;
+    background-color: #000;
+    border: 1px solid var(--color-neon-blue);
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus {
+    border-color: var(--color-acid-green);
+    box-shadow: 0 0 10px var(--color-acid-green);
+}
+.form-group input::placeholder {
+    color: #555;
+    font-family: var(--font-pixel);
+}
+
+.form-group input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: var(--color-acid-green); /* Styles the checkbox itself in modern browsers */
+    transform: scale(1.2); /* Make checkbox slightly bigger */
+    vertical-align: middle;
+}
+.consent-label {
+    font-family: var(--font-pixel);
+    font-size: 0.9rem;
+    color: #ccc;
+    display: inline; /* Align with checkbox */
+}
+
+.form-submit-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+}
+.form-disclaimer {
+    font-family: var(--font-pixel);
+    font-size: 0.8rem;
+    color: var(--color-glitch-yellow);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.downloads-list {
+    margin-top: 60px;
+}
+.downloads-list .subsection-title { /* Specific section title within downloads page */
+    font-family: var(--font-headline);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--color-glitch-yellow);
+    /* Add scroll-in animation if desired, but this is a child of an already animated container */
+}
+.download-item {
+    background-color: var(--color-medium-gray);
+    padding: 20px;
+    border: 1px solid var(--color-neon-blue);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+/* Re-using card styles for download items */
+.download-item .card-icon {
+    font-size: 2.5em;
+    color: var(--color-acid-green);
+    margin-bottom: 10px;
+}
+.download-item .card-title {
+    font-family: var(--font-pixel);
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+.download-item .card-text {
+    font-size: 0.9rem;
+    color: #bbb;
+    margin-bottom: 15px;
+    max-width: 400px;
+}
+.download-link-locked {
+    color: var(--color-glitch-yellow) !important;
+    border: 1px dashed var(--color-glitch-yellow);
+    padding: 5px 10px;
+    font-family: var(--font-pixel); /* Ensure pixel font */
+    text-decoration: none;
+}
+.download-link-unlocked {
+    color: var(--color-acid-green) !important;
+    border: 1px solid var(--color-acid-green);
+    padding: 5px 10px;
+    font-family: var(--font-pixel); /* Ensure pixel font */
+    text-decoration: none;
+}
+.download-link-locked:hover, .download-link-unlocked:hover {
+    opacity: 0.8;
+}
+
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 992px) { /* Tablet */
+    .focus-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) { /* Mobile */
+    .container {
+        width: 95%;
+        padding: 30px 15px;
+    }
+    .focus-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .hero-content h1 { font-size: 10vw; }
+    .hero-content h2 { font-size: 8vw; }
+    .hero-logo { max-width: 120px; margin-bottom: 20px; }
+
+    .section-title { font-size: clamp(2rem, 8vw, 3rem); }
+    .section-title-small { font-size: clamp(1.5rem, 6vw, 2rem); }
+    .manifesto-section .manifesto-title { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+
+    .focus-card .card-icon i,
+    .download-item .card-icon {
+        font-size: 2.5em;
+    }
+    .focus-card .card-title,
+    .download-item .card-title {
+        font-size: 1.2rem;
+    }
+    .pillar-title { font-size: 1.2rem; }
+
+    .detail-page-content .section-title { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+    .detail-content-wrapper p, .detail-content-wrapper ul { font-size: 1rem; }
+
+    .downloads-form-container { padding: 20px; }
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+        padding: 10px;
+    }
+    .consent-label { font-size: 0.8rem; }
+}
+
+@media (max-width: 480px) { /* Smaller Mobile */
+    .hero-content h1 { font-size: 12vw; }
+    .hero-content h2 { font-size: 10vw; }
+    .sub-headline-hero { font-size: clamp(0.9rem, 4vw, 1.2rem); }
+    .cta-button { padding: 10px 20px; font-size: clamp(0.9rem, 3.5vw, 1.1rem); }
+    .scroll-down-indicator { font-size: 0.8rem; }
+}
+/* Scroll Down Indicator */
+.scroll-down-indicator {
+  position: absolute;
+  bottom: 1.5rem;
+  width: 100%;
+  text-align: center;
+  color: var(--accent-color);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  pointer-events: none; /* prevents blocking clicks */
+  z-index: 2;
+}
+/* Watch Section (Social CTA) */
+.watch-section {
+  background: #111;
+  padding: 4rem 1rem 3rem;
+  text-align: center;
+  border-top: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--accent-color);
+  margin-top: 4rem;
+}
+
+.watch-title {
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--accent-color);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.03em;
+}
+
+.watch-sub {
+  color: #ccc;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.social-icons-large a {
+  color: var(--accent-color);
+  font-size: 2rem;
+  margin: 0 1rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons-large a:hover {
+  color: #fff;
+}
+

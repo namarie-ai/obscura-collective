@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agency & Rebellion | Obscura Collective</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    body.agency-page {
+      --accent-color: #FF1744;
+      background: #000;
+      color: #ddd;
+    }
+
+    .hero-section {
+      background: linear-gradient(to bottom, #0a0a0a 0%, #2a0008 100%);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .hero-section .hero-sub {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    .pillar-flex {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .pillar-image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border: 2px solid var(--accent-color);
+      box-shadow: 0 0 15px rgba(255, 23, 68, 0.3);
+    }
+
+    .pillar-content {
+      max-width: 600px;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .pillar-content strong {
+      color: var(--accent-color);
+    }
+
+    .mini-callout {
+      background: #111;
+      border-left: 4px solid var(--accent-color);
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin: 3rem auto 2rem;
+      padding: 0.8rem 1.5rem;
+      background: var(--accent-color);
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .pillar-flex {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body class="agency-page">
+  <nav style="position: absolute; top: 1rem; left: 1rem; right: 1rem; z-index: 1000; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem;">
+    <div><a href="index.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">[home_]</a></div>
+    <div style="display: flex; gap: 1.5rem;">
+      <a href="education.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">[education_]</a>
+      <a href="community.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">[community_]</a>
+    </div>
+  </nav>
+
+  <header class="hero-section">
+    <h1>[AGENCY & REBELLION_]</h1>
+    <p class="hero-sub">"You are still awake in a system built to numb you."</p>
+  </header>
+
+  <section class="pillar-flex">
+    <img src="images/agency-rebellion.jpg" alt="Cinematic visual for Agency and Rebellion" class="pillar-image">
+
+    <div class="pillar-content">
+      <p><strong>You weren’t meant to feel this much.</strong> You were meant to scroll, consume, comply. But you didn’t. You noticed. You remembered. You resisted.</p>
+
+      <p><strong>They call you angry.</strong> But that’s because they’re afraid. Afraid of what happens when the ones they tried to numb start building something new. Together. Awake.</p>
+
+      <p><strong>This is your agency.</strong> Your refusal to go numb. Your instinct to question. Your drive to build a future not handed down, but created on your terms.</p>
+
+      <div class="mini-callout">
+        <p><strong>System At A Glance:</strong><br>
+        Exploit: Emotional Numbing + Compliance<br>
+        Weaponised: Shame, Screens, Individualism<br>
+        Cost: Rebellion, Imagination, Change</p>
+      </div>
+
+      <a href="download.html" class="cta-button">[GET THE RESISTANCE KIT]</a>
+    </div>
+  </section>
+</body>
+</html>
