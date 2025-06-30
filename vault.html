@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Vault | Obscura Collective</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    body.vault-page {
+      --accent-color: #00ff99;
+      background-color: #000;
+      color: #ddd;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .vault-hero {
+      background: linear-gradient(to bottom, #000 0%, #001a13 100%);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+    }
+
+    .vault-hero h1 {
+      font-size: 2.8rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .vault-hero p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    .vault-section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .file-block {
+      background: #111;
+      border-left: 4px solid var(--accent-color);
+      padding: 1.2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(0, 255, 153, 0.2);
+    }
+
+    .file-block h3 {
+      margin-top: 0;
+      color: var(--accent-color);
+      font-size: 1.2rem;
+    }
+
+    .file-block p {
+      font-size: 0.95rem;
+      color: #ccc;
+      margin-bottom: 0.8rem;
+    }
+
+    .file-block a {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #000;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .file-block a:hover {
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .vault-hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body class="vault-page">
+ <nav style="position: absolute; top: 1rem; right: 1rem; z-index: 1000; display: flex; flex-direction: column; align-items: flex-end; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem;">
+  <div style="color: var(--accent-color); font-weight: bold; margin-bottom: 0.5rem;">//_NAVIGATION</div>
+  <a href="index.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold; margin-bottom: 0.3rem;">[home_]</a><a href="origin.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold; margin-bottom: 0.3rem;">[origin story_]</a>
+  <a href="education.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold; margin-bottom: 0.3rem;">[education_]</a>
+<a href="community.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold; margin-bottom: 0.3rem;">[community_]</a>
+  </nav>
+
+
+  <header class="vault-hero">
+    <h1>[THE VAULT_]</h1>
+    <p>This is where the tools live. Templates, trackers, transcripts — all yours to download, remix, and use however you need.</p>
+  </header>
+
+  <section class="vault-section">
+
+    <div class="file-block">
+    <h3>📜 Obscura Mission Statement</h3>
+    <p>The signal in its purest form. A declaration of why we built this — and what we're here to dismantle. Stick it to your wall. Send it to a friend. Read it when the noise gets loud.</p>
+    <a href="downloads/obscura-mission-statement.pdf" download>[DOWNLOAD_]</a>
+  </div>
+
+  <div class="file-block">
+    <h3>📊 Obscura Tracker (Digital Version)</h3>
+    <p>A minimalist daily tracker for attention, energy, clarity and resistance. Built for Notion, Google Docs, or your app of choice. Track without the dopamine traps.</p>
+    <a href="downloads/obscura-digital-tracker.pdf" download>[DOWNLOAD_]</a>
+  </div>
+
+  <div class="file-block">
+    <h3>🖊 Obscura Tracker (Paper Version)</h3>
+    <p>Prefer pen and paper? This version is made to be printed, scribbled on, and bent out of shape. Resistance isn’t always digital.</p>
+    <a href="downloads/obscura-print-tracker.pdf" download>[DOWNLOAD_]</a>
+  </div>
+
+  <div class="file-block">
+    <h3>📱 Obscura Phone Wallpapers (Set of 5)</h3>
+    <p>Visual reminders. Silent rebellion. These wallpapers are designed to interrupt the scroll with truth. Each one is a portal back to yourself.</p>
+    <a href="downloads/obscura-wallpapers.zip" download>[DOWNLOAD_]</a>
+  </div>
+
+</section>
+
+    <!-- Add more file blocks here -->
+
+  </section>
+
+  <footer class="footer-section">
+    <div class="container">
+      <p class="footer-text">[OBSCURA_FEED: ACTIVE_//_NEW_SIGNALS_DETECTED_]</p>
+      <p class="copyright-text">© <span id="current-year"></span> // OBSCURA COLLECTIVE // ALL VISIONS AMPLIFIED.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
