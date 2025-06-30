@@ -144,32 +144,27 @@
         height: 200px;
       }
     }
-@media (max-width: 480px) {
-  .hero-section h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero-section p {
-    font-size: 0.95rem;
-  }
-
+@media (max-width: 768px) {
   .course-block {
     flex-direction: column;
-    padding: 1rem;
+    padding: 1.2rem;
   }
 
   .course-text {
     padding-right: 0;
+    margin-bottom: 1rem;
   }
 
   .course-image {
-    height: 180px;
-    margin-top: 1rem;
+    height: auto;
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
   }
 
   .cta-button {
-    font-size: 0.9rem;
-    padding: 10px 16px;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
   }
 }
   </style>
